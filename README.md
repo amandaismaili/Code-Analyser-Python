@@ -1,15 +1,38 @@
-# Code-Analyser-Python
+Code Analyser (Python)
+A Python-based static analysis tool that examines Python files to detect errors, inconsistencies, and encoding issues (such as UTF-8 incompatibilities).
 
-# Inital Description
-- This is a program written in python which analyses a certain file written in python and tells the user where the mistakes are made and what feature doesnt fit with UTF-8
+#Overview
+This program allows users to analyze a Python file through command-line arguments and apply different types of checks, including line-based analysis and Abstract Syntax Tree (AST) analysis.
 
-# Features
-- The program lets user enter a file name using argparse with command line arguments
-- It lets the user add what type of checks (line-checks, ast-checks or both) he or she wishes to do on the file
-- There are three main files besides the main.py: one which contains line base checks, one with ast checks and another with more advanced ast checks
-- There is also another file with decorators from which the three check files import from
-- The decorators are applied to all functions
-- The main file imports the functions from the three checks file
+##Features
+Analyze a Python file provided via command-line arguments (argparse)
 
-  # Requirements
-- All modules needed are already imported
+Perform:
+Line-based checks
+AST-based checks
+Combined analysis
+Detect syntax issues and potential inconsistencies
+Identify encoding-related problems (e.g. UTF-8 compatibility)
+
+Project Structure
+main.py – Entry point of the program
+line_checks.py – Contains line-by-line validation functions
+ast_checks.py – Basic AST-based analysis
+advanced_ast_checks.py – More advanced AST validations
+decorators.py – Shared decorators used across check functions
+
+Technical Details
+Modular design with separated concerns for different types of analysis
+Use of decorators to standardize and enhance function behavior
+Built using Python’s AST module for deeper code inspection
+
+Requirements
+All required libraries are part of Python’s standard library (no external dependencies needed).
+
+How to Run
+python main.py <filename> --checks [line|ast|all]
+Example:
+python main.py script.py --checks all
+
+Notes
+This project was developed to explore static code analysis, modular design, and working with Python’s AST for deeper program inspection.
