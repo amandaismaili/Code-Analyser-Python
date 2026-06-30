@@ -1,38 +1,35 @@
-#Code Analyser (Python)
-A Python-based static analysis tool that examines Python files to detect errors, inconsistencies, and encoding issues (such as UTF-8 incompatibilities).
+# Code Analyser
 
-#Overview
-This program allows users to analyze a Python file through command-line arguments and apply different types of checks, including line-based analysis and Abstract Syntax Tree (AST) analysis.
+A static analysis tool for Python files built with Python's `ast` module. Accepts a file path via command-line arguments and runs configurable checks to detect syntax issues, encoding problems, and code inconsistencies.
 
-##Features
- - Analyze a Python file provided via command-line arguments (argparse)
+## Features
 
-Perform: 
- - Line-based checks
- - AST-based checks
- - Combined analysis
- - Detect syntax issues and potential inconsistencies
- - Identify encoding-related problems (e.g. UTF-8 compatibility)
+- Line-by-line validation (whitespace issues, encoding problems, UTF-8 incompatibilities)
+- AST-based analysis for deeper structural inspection
+- Advanced AST checks for additional code quality rules
+- Shared decorator system for consistent check behavior
+- Modular design — each check type lives in its own module
+- No external dependencies
 
-Project Structure
- - main.py – Entry point of the program
- - line_checks.py – Contains line-by-line validation functions
- - ast_checks.py – Basic AST-based analysis
- - advanced_ast_checks.py – More advanced AST validations
- - decorators.py – Shared decorators used across check functions
+## Project Structure
+├── codeanalyser.py        # Entry point, argument parsing
+├── line_checks.py         # Line-based validation functions
+├── atc_checks.py          # Basic AST checks
+├── advanced_ast_checks.py # Advanced AST validations
+└── decorators.py          # Shared decorators
 
-Technical Details
- - Modular design with separated concerns for different types of analysis
- - Use of decorators to standardize and enhance function behavior
- - Built using Python’s AST module for deeper code inspection
+## How to Run
 
-Requirements
-All required libraries are part of Python’s standard library (no external dependencies needed).
+```bash
+python codeanalyser.py script.py --checks line
+python codeanalyser.py script.py --checks ast
+python codeanalyser.py script.py --checks all
+```
 
-How to Run
-python main.py <filename> --checks [line|ast|all]
-Example:
-python main.py script.py --checks all
+## Concepts Demonstrated
 
-Notes
-This project was developed to explore static code analysis, modular design, and working with Python’s AST for deeper program inspection.
+- Python's `ast` module for code inspection
+- Modular architecture with separated concerns
+- Decorator pattern for reusable function behavior
+- Command-line argument parsing with `argparse`
+- Static analysis fundamentals
